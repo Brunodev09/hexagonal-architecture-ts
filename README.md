@@ -7,8 +7,7 @@ Template for enterprise Typescript + Nodejs enterprise applications with SOLID, 
 | --- | --- |
 | **Typescript** | Linguagem de programação |
 | **[express](https://expressjs.com/)** | REST API framework, responsável por rotear e parsear requisições e respostas HTTP | 
-| **[tsoa](https://github.com/lukeautry/tsoa)** | Registra automaticamente as rotas do **Express** e gera a documentação **Swagger** para todas as Controllers REST da aplicação
- | 
+| **[tsoa](https://github.com/lukeautry/tsoa)** | Registra automaticamente as rotas do **Express** e gera a documentação **Swagger** para todas as Controllers REST da aplicação | 
 | **[InversifyJS](https://github.com/inversify/InversifyJS)** | IoC (inversion of control) framework, para gerenciar inversão de controle das dependências |
 | **[Pino](https://github.com/pinojs/pino)** | Logger |
 | **Libs** | Bibliotecas escritas por nós para ajudar a manter o framework |
