@@ -11,7 +11,8 @@ Template for enterprise Typescript + Nodejs enterprise applications with SOLID, 
  | 
 | **[InversifyJS](https://github.com/inversify/InversifyJS)** | IoC (inversion of control) framework, para gerenciar inversão de controle das dependências |
 | **[Pino](https://github.com/pinojs/pino)** | Logger |
-| **[Libs](./libs)** | Bibliotecas escritas por nós para ajudar a manter o framework 
+| **Libs** | Bibliotecas escritas por nós para ajudar a manter o framework |
+
 ---
 
 ## Rodando localmente
