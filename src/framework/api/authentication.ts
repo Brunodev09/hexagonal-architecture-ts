@@ -1,0 +1,1 @@
+// Usar este arquivo para setar as regras de autenticação nas rotas.

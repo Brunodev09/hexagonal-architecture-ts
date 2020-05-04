@@ -1,0 +1,18 @@
+{
+  "swagger": {
+    "basePath": "/",
+    "entryFile": "./src/framework/api/server.ts",
+    "specVersion": 3,
+    "outputDirectory": "./src/framework/api/",
+    "controllerPathGlobs": [
+      "./src/framework/api/**/*Controller.ts"
+    ],
+    "host": null
+  },
+  "routes": {
+    "middleware": "express",
+    "routesDir": "./src/framework/api/",
+    "entryFile": "./src/framework/api/server.ts",
+    "iocModule": "./src/framework/ioc/ioc"
+  }
+}
