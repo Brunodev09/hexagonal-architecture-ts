@@ -1,61 +1,61 @@
 # typescript-nodejs-template
-Template for enterprise Typescript + Nodejs enterprise applications with SOLID, Hexagonal and ioc principles.
+API REST template for Typescript + Node.js enterprise applications with SOLID, hexagonal and ioc principles.
 
-**Stack de tecnologias:**
+**Tech Stack:**
 
-| Tecnologia | Papel | 
+| Tech | Role | 
 | --- | --- |
-| **Typescript** | Linguagem de programação |
-| **[express](https://expressjs.com/)** | REST API framework, responsável por rotear e parsear requisições e respostas HTTP | 
-| **[tsoa](https://github.com/lukeautry/tsoa)** | Registra automaticamente as rotas do **Express** e gera a documentação **Swagger** para todas as Controllers REST da aplicação | 
-| **[InversifyJS](https://github.com/inversify/InversifyJS)** | IoC (inversion of control) framework, para gerenciar inversão de controle das dependências |
+| **Typescript** | Programming language |
+| **[express](https://expressjs.com/)** | REST API framework, responsible for routing and parsing HTTP request and responses | 
+| **[tsoa](https://github.com/lukeautry/tsoa)** | Automatically registers **express** routes and generates **swagger** documentation for all the REST Controllers of the application | 
+| **[InversifyJS](https://github.com/inversify/InversifyJS)** | IoC (inversion of control) framework, to manage inversion of control of dependencies |
 | **[Pino](https://github.com/pinojs/pino)** | Logger |
-| **Libs** | Bibliotecas escritas por nós para ajudar a manter o framework |
+| **Libs** | Custom libraries made by me to mantain the application |
 
 ---
 
-## Rodando localmente
+## Running locally
 
-1. Instale as depedências do projeto, rodando o seguinte comando numa janela do terminal:
+1. Install the project dependencies, running the following on a terminal:
 
    ```bash
    npm install
    ```
 
-2. Inicie a aplicação:
+2. Start the application:
 
    ```bash
    npm run start
    ```
 
-3. A UI da API se encontrará disponível no seguinte endereço:
+3. The UI of the API can be found available at the following address:
 
    ```
    http://localhost:3000/api-docs/
    ```
 
-O comando `start` é apenas um atalho que, por debaixo dos panos, executa outros dois scripts:
+The `start` command is but a shortcut that, under the hood, executes 2 other scripts:
 
-1. `npm run routes` - Gera automaticamente as rotas do Express e a documentação do Swagger para todas as classes de Controller.
-2. `npm run dev` - Inicia o [compilador Typescript](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
+1. `npm run routes` - Automatically registers all of express routes and generates swagger documentation.
+2. `npm run dev` - Starts the [Typescript compiler](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
 
-Se você já rodou o comando `npm run routes` e não alterou nenhuma classe de Controllers, você pode iniciar a aplicação rodando `npm run dev`.
+If you already ran the `npm run routes` command and did not change any code from any of the Controller classes, you can finally start the application by running  `npm run dev`.
 
-### Configurando a IDE (VS Code)
+### Configuring IDE (VS Code)
 
-Instale as extensões para que sua IDE te ajude a manter os princípios dos nossos projetos.
+Install the following extension to help you mantain the programming designs of my project.
 
 - [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
 
-### Debugando
+### Debugging
 
-Já existe um arquivo com o nome de `.vscode/launch.json` no projeto que automaticamente configura a ferramenta de debug do VS Code. Para debugar a aplicação, acesse a aba _Debug_ e clique em "_Start and Debug_" no topo da janela.
+There is a pre-made file named `.vscode/launch.json` inside the project that will automatically configure VS Code's debugging tool. To debug the application, access the _Debug_ tab and click on "_Start and Debug_" on the top of the window.
 
-Garanta que o comando de registro de rotas tenha sido rodado anteriormente (`npm run routes`) para que a sessão de debug ocorra sem eventuais problemas.
+Make sure to run `npm run routes` so that your debugging session can happen without any incidents.
 
-## Padrões de arquitetura
+## Architecture patterns
 
-Este template de projeto segue os padrões e arquitetura descritas nas seguintes referências:
+This project template follows the patterns and architecture described in the following references:
 
  [CLEAN Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html),
  [Hexagonal Architecture definition](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)),
@@ -64,18 +64,19 @@ Este template de projeto segue os padrões e arquitetura descritas nas seguintes
 
 ### Docker
 
-Esta é a forma mais rápida de ter a sua aplicação rodando localmente, com a desvantagem da possibilidade de debug através da IDE. Basta ter uma versão da engine do `docker` instalada em sua máquina e seguir estes passos:
+This is the quickest way to have your application running locally, with the only disadvantage being the lack of IDE debugging.
+All you need is a working version of the `docker` engine installed on your machine and follow the steps below:
 
-1. Numa janela do terminal, crie uma image do docker com o seguinte comando:
+1. In a terminal window, create a docker image with:
 
    ```bash
-   docker build --tag bffcore .
+   docker build --tag template .
    ```
 
-2. Inicie um container da imagem recém criada, desta forma:
+2. Start a container, with the created image with:
 
    ```bash
-   docker run --publish 3000:3000 bffcore
+   docker run --publish 3000:3000 template
    ```
 
 ### Unit testing
