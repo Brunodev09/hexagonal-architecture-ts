@@ -1,0 +1,1 @@
+// Use this file to set route auth methods

@@ -1,0 +1,140 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"exampleResponse": {
+				"description": "Contrato de resposta da API de \"exemplo\".",
+				"properties": {},
+				"type": "object",
+				"additionalProperties": true
+			},
+			"ValidationError": {
+				"description": "Representa um erro de validação em n campos",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					},
+					"fields": {
+						"items": {
+							"type": "string"
+						},
+						"type": "array"
+					}
+				},
+				"required": [
+					"code",
+					"message",
+					"fields"
+				],
+				"type": "object",
+				"additionalProperties": true
+			},
+			"BusinessError": {
+				"description": "Representa um erro de negócio",
+				"properties": {
+					"code": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"code",
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": true
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "bff-recomendacoes-core",
+		"version": "1.0.0",
+		"license": {
+			"name": "MIT"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/example/{agencyId}/{projectType}/agency": {
+			"get": {
+				"operationId": "Get",
+				"responses": {
+					"200": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/exampleResponse"
+								}
+							}
+						},
+						"description": "Ok"
+					},
+					"400": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ValidationError"
+								}
+							}
+						},
+						"description": "Bad Request"
+					},
+					"422": {
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BusinessError"
+								}
+							}
+						},
+						"description": "Business Error"
+					}
+				},
+				"tags": [
+					"example"
+				],
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "agencyId",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					},
+					{
+						"in": "query",
+						"name": "projectType",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"enum": [
+								"INVESTMENT",
+								"PAYMENTS",
+								"FUNDING",
+								"MANAGEMENT"
+							]
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}

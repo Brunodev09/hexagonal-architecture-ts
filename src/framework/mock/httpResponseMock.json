@@ -1,0 +1,32 @@
+[
+    {
+        "agencyId": 1,
+        "cityId": 166,
+        "clientId": 1800388177721,
+        "userId": 7865430388155717,
+        "addressId": 667,
+        "leadingManagerName": "João de Souza",
+        "managers": ["João de Souza", "Rui da Silva", "Hernesto Saviano"],
+        "projectType": "INVESTMENT"
+    },
+    {
+        "agencyId": 2,
+        "cityId": 712,
+        "clientId": 1800388177721,
+        "userId": 7865430388155717,
+        "addressId": 667,
+        "leadingManagerName": "Luís Maranhão",
+        "managers": ["Luís Maranhão", "Rafael Camargo"],
+        "projectType": "INVESTMENT"
+    },
+    {
+        "agencyId": 3,
+        "cityId": 3,
+        "clientId": 1800388177721,
+        "userId": 7865430388155717,
+        "addressId": 667,
+        "leadingManagerName": "José Miudo",
+        "managers": ["José Miudo", "Hercules Matão"],
+        "projectType": "PAYMENTS"
+    }
+]

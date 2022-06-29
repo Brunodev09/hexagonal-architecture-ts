@@ -1,0 +1,34 @@
+{
+    "name": "sta",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "rm -rf ./dist && tsc && node ./dist/src/framework/api/server.js",
+        "build-routes": "tsoa swagger -c ./tsoa.json && tsoa routes -c ./tsoa.json",
+        "start": "npm run build-routes && npm run dev"
+    },
+    "author": "brunodev09",
+    "license": "MIT",
+    "dependencies": {
+        "@types/crypto-js": "^3.1.45",
+        "@types/node": "^13.13.4",
+        "@types/request-promise": "^4.1.46",
+        "@types/swagger-ui-express": "^4.1.2",
+        "axios": "^0.19.2",
+        "compression": "^1.7.4",
+        "cors": "^2.8.5",
+        "crypto-js": "^4.0.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "inversify": "^5.0.1",
+        "jsonwebtoken": "^8.5.1",
+        "moment": "^2.24.0",
+        "pino": "^6.2.1",
+        "reflect-metadata": "^0.1.13",
+        "request-promise": "^4.2.5",
+        "swagger-ui-express": "4.1.3",
+        "tsoa": "2.5.13",
+        "typescript": "^3.8.3"
+    }
+}
