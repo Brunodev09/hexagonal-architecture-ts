@@ -7,13 +7,12 @@
 		"responses": {},
 		"schemas": {
 			"exampleResponse": {
-				"description": "Contrato de resposta da API de \"exemplo\".",
 				"properties": {},
 				"type": "object",
 				"additionalProperties": true
 			},
 			"ValidationError": {
-				"description": "Representa um erro de validação em n campos",
+				"description": "Represents a validation error",
 				"properties": {
 					"code": {
 						"type": "string"
@@ -37,7 +36,7 @@
 				"additionalProperties": true
 			},
 			"BusinessError": {
-				"description": "Representa um erro de negócio",
+				"description": "Represents a business error",
 				"properties": {
 					"code": {
 						"type": "string"
@@ -52,15 +51,44 @@
 				],
 				"type": "object",
 				"additionalProperties": true
+			},
+			"ProjectSection": {
+				"enum": [
+					"INVESTMENT",
+					"PAYMENTS",
+					"FUNDING",
+					"MANAGEMENT"
+				],
+				"type": "string"
+			},
+			"userCreatedResponse": {
+				"properties": {},
+				"type": "object",
+				"additionalProperties": true
+			},
+			"IUserCreationParams": {
+				"properties": {
+					"name": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name"
+				],
+				"type": "object",
+				"additionalProperties": true
 			}
 		},
 		"securitySchemes": {}
 	},
 	"info": {
-		"title": "bff-recomendacoes-core",
+		"title": "sta",
 		"version": "1.0.0",
 		"license": {
 			"name": "MIT"
+		},
+		"contact": {
+			"name": "brunodev09"
 		}
 	},
 	"openapi": "3.0.0",
@@ -70,34 +98,34 @@
 				"operationId": "Get",
 				"responses": {
 					"200": {
+						"description": "Ok",
 						"content": {
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/exampleResponse"
 								}
 							}
-						},
-						"description": "Ok"
+						}
 					},
 					"400": {
+						"description": "Bad Request",
 						"content": {
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/ValidationError"
 								}
 							}
-						},
-						"description": "Bad Request"
+						}
 					},
 					"422": {
+						"description": "Business Error",
 						"content": {
 							"application/json": {
 								"schema": {
 									"$ref": "#/components/schemas/BusinessError"
 								}
 							}
-						},
-						"description": "Business Error"
+						}
 					}
 				},
 				"tags": [
@@ -119,16 +147,70 @@
 						"name": "projectType",
 						"required": true,
 						"schema": {
-							"type": "string",
-							"enum": [
-								"INVESTMENT",
-								"PAYMENTS",
-								"FUNDING",
-								"MANAGEMENT"
-							]
+							"$ref": "#/components/schemas/ProjectSection"
 						}
 					}
 				]
+			}
+		},
+		"/user/create": {
+			"post": {
+				"operationId": "Post",
+				"responses": {
+					"201": {
+						"description": "User has been created",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/userCreatedResponse"
+								},
+								"examples": {
+									"Example 1": {
+										"value": {
+											"_id": "213b21y3g12gy",
+											"name": "customUsername123"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Bad Request",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/ValidationError"
+								}
+							}
+						}
+					},
+					"422": {
+						"description": "Business Error",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/BusinessError"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"User"
+				],
+				"security": [],
+				"parameters": [],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/IUserCreationParams"
+							}
+						}
+					}
+				}
 			}
 		}
 	},

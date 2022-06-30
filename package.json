@@ -6,15 +6,16 @@
     "scripts": {
         "dev": "rm -rf ./dist && tsc --skipLibCheck && node ./dist/src/framework/api/server.js",
         "build-routes": "tsoa swagger -c ./tsoa.json && tsoa routes -c ./tsoa.json",
-        "start": "npm run build-routes && npm run dev"
+        "build": "tsoa spec-and-routes && tsc",
+        "start": "npm run build && npm run dev"
     },
     "author": "brunodev09",
     "license": "MIT",
     "dependencies": {
         "@types/crypto-js": "^3.1.45",
-        "@types/node": "^13.13.4",
+        "@types/node": "^18.0.0",
         "@types/request-promise": "^4.1.46",
-        "@types/swagger-ui-express": "^4.1.2",
+        "@types/swagger-ui-express": "^4.1.3",
         "axios": "^0.19.2",
         "compression": "^1.7.4",
         "cors": "^2.8.5",
@@ -25,11 +26,12 @@
         "jsonwebtoken": "^8.5.1",
         "moment": "^2.24.0",
         "mongoose": "^6.4.1",
-        "pino": "^6.2.1",
+        "multer": "^1.4.5-lts.1",
+        "pino": "^8.1.0",
         "reflect-metadata": "^0.1.13",
         "request-promise": "^4.2.5",
-        "swagger-ui-express": "4.1.3",
-        "tsoa": "2.5.13",
+        "swagger-ui-express": "^4.4.0",
+        "tsoa": "^4.1.0",
         "typescript": "^4.7.4"
     }
 }
