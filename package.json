@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "rm -rf ./dist && tsc && node ./dist/src/framework/api/server.js",
+        "dev": "rm -rf ./dist && tsc --skipLibCheck && node ./dist/src/framework/api/server.js",
         "build-routes": "tsoa swagger -c ./tsoa.json && tsoa routes -c ./tsoa.json",
         "start": "npm run build-routes && npm run dev"
     },
@@ -24,11 +24,12 @@
         "inversify": "^5.0.1",
         "jsonwebtoken": "^8.5.1",
         "moment": "^2.24.0",
+        "mongoose": "^6.4.1",
         "pino": "^6.2.1",
         "reflect-metadata": "^0.1.13",
         "request-promise": "^4.2.5",
         "swagger-ui-express": "4.1.3",
         "tsoa": "2.5.13",
-        "typescript": "^3.8.3"
+        "typescript": "^4.7.4"
     }
 }
